@@ -1,0 +1,31 @@
+.homeContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.textContainer {
+  flex: 1;
+}
+
+.fadeInText {
+  font-size: 2em;
+  color: #101010;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.image {
+  width: 600px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

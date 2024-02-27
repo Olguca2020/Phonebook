@@ -1,0 +1,26 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-bottom: 20px;
+  padding: 20px 50px 20px 50px;
+}
+.loginSection {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.active {
+  color: orange;
+}
