@@ -2,7 +2,6 @@ import css from "./ContactPage.module.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectIsLoading } from "../../redux/contacts/selectors";
 import { selectError } from "../../redux/contacts/selectors";
@@ -33,7 +32,7 @@ export default function ContactPage() {
           <SearchBox />
           <ContactList />
           {isLoading && <MyLoader />}
-          {error && <ErrorMessage />}
+          {error && <p>Oops, please try reloading the page...</p>}
         </div>
       </HelmetProvider>
     </>
