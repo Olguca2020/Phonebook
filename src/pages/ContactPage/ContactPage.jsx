@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { SearchBox } from "../SearchBox/SearchBox";
-import { ContactList } from "../ContactList/ContactList";
-import { fetchCards } from "../../redux/operation";
-import { selectError, selectLoading } from "../../redux/selectors";
-import { ContactForm } from "../ContactForm/ContactForm";
-import { MyLoader } from "../Loader/Loader";
+
 import toast, { Toaster } from "react-hot-toast";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import { SearchBox } from "../../components/SearchBox/SearchBox";
+import { ContactList } from "../../components/ContactList/ContactList";
+import { fetchCards } from "../../redux/handleCards/operation";
+import { selectError, selectLoading } from "../../redux/auth/selectors";
+import { ContactForm } from "../../components/ContactForm/ContactForm";
+import { MyLoader } from "../../components/Loader/Loader";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
