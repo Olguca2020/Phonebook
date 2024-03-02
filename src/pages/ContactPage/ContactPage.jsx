@@ -2,8 +2,6 @@ import css from "./ContactPage.module.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import SectionContactForm from "../../components/SectionContactForm/SectionContactForm";
-
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { fetchContacts } from "../../redux/contacts/operations";
 import { selectIsLoading } from "../../redux/contacts/selectors";
@@ -12,6 +10,7 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import { ContactList } from "../../components/ContactList/ContactList";
 import { SearchBox } from "../../components/SearchBox/SearchBox";
 import { MyLoader } from "../../components/Loader/Loader";
+import { ContactForm } from "../../components/ContactForm/ContactForm";
 
 export default function ContactPage() {
   const dispatch = useDispatch();
@@ -28,7 +27,7 @@ export default function ContactPage() {
         <Helmet>
           <title>PhoneBook</title>
         </Helmet>
-        <SectionContactForm />
+        <ContactForm />
 
         <div className={css.wrapContacts}>
           <SearchBox />
