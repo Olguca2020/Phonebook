@@ -5,9 +5,10 @@ import { Route, Routes } from "react-router-dom";
 import { refreshUser } from "../../redux/auth/operationAuth";
 import { useAuth } from "../hooks";
 import { RestrictedRoute } from "../RestrictedRoute";
-import { Layout } from "../Layout";
+
 import { PrivateRoute } from "../PrivateRoute";
 import { MyLoader } from "../Loader/Loader";
+import { Layout } from "../Layout/Layout";
 
 const Home = lazy(() => import("../../pages/Home/Home"));
 const Register = lazy(() => import("../../pages/Register/Register"));

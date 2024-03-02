@@ -1,17 +1,20 @@
 import { NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
 import { useAuth } from "../hooks";
+import clsx from "clsx";
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
-
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(css.link, isActive && css.active);
+  };
   return (
     <nav>
-      <NavLink className={css.link} to="/">
+      <NavLink className={buildLinkClass} to="/">
         Home
       </NavLink>
       {isLoggedIn && (
-        <NavLink className={css.link} to="/tasks">
+        <NavLink className={buildLinkClass} to="/tasks">
           Tasks
         </NavLink>
       )}
