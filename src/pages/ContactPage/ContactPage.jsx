@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import toast, { Toaster } from "react-hot-toast";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+
 import { SearchBox } from "../../components/SearchBox/SearchBox";
 import { ContactList } from "../../components/ContactList/ContactList";
 import { fetchCards } from "../../redux/handleCards/operation";
@@ -29,17 +29,14 @@ export default function ContactsPage() {
   }, [error, hasErrorOccurred]);
   return (
     <>
-      <HelmetProvider>
-        <Helmet>
-          <title>PhoneBook</title>
-        </Helmet>
-        <ContactForm />
-        <SearchBox />
+      <title>PhoneBook</title>
 
-        {isLoading && <MyLoader />}
-        <ContactList />
-        <Toaster />
-      </HelmetProvider>
+      <ContactForm />
+      <SearchBox />
+
+      {isLoading && <MyLoader />}
+      <ContactList />
+      <Toaster />
     </>
   );
 }
