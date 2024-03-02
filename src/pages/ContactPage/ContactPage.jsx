@@ -1,25 +1,31 @@
-import css from "./ContactPage.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import { fetchContacts } from "../../redux/contacts/operations";
-import { selectIsLoading } from "../../redux/contacts/selectors";
-import { selectError } from "../../redux/contacts/selectors";
+import { SearchBox } from "../SearchBox/SearchBox";
+import { ContactList } from "../ContactList/ContactList";
+import { fetchCards } from "../../redux/operation";
+import { selectError, selectLoading } from "../../redux/selectors";
+import { ContactForm } from "../ContactForm/ContactForm";
+import { MyLoader } from "../Loader/Loader";
+import toast, { Toaster } from "react-hot-toast";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { ContactList } from "../../components/ContactList/ContactList";
-import { SearchBox } from "../../components/SearchBox/SearchBox";
-import { MyLoader } from "../../components/Loader/Loader";
-import { ContactForm } from "../../components/ContactForm/ContactForm";
 
-export default function ContactPage() {
+export default function ContactsPage() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
+  const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
 
+  const [hasErrorOccurred, setHasErrorOccurred] = useState(false);
+
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(fetchCards());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (error && !hasErrorOccurred) {
+      toast.error("Waiting please...");
+      setHasErrorOccurred(true);
+    }
+  }, [error, hasErrorOccurred]);
   return (
     <>
       <HelmetProvider>
@@ -27,13 +33,11 @@ export default function ContactPage() {
           <title>PhoneBook</title>
         </Helmet>
         <ContactForm />
+        <SearchBox />
 
-        <div className={css.wrapContacts}>
-          <SearchBox />
-          <ContactList />
-          {isLoading && <MyLoader />}
-          {error && <p>Oops, please try reloading the page...</p>}
-        </div>
+        {isLoading && <MyLoader />}
+        <ContactList />
+        <Toaster />
       </HelmetProvider>
     </>
   );
