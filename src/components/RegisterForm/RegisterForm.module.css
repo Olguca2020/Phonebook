@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 8px; /* Изменено расстояние между полем ввода и сообщением об ошибке */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
