@@ -3,9 +3,10 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import css from "./ContactForm.module.css";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCards } from "../../redux/selectors";
+
 import { addCard } from "../../redux/operation";
 import { toast } from "react-hot-toast";
+import { selectCards } from "../../redux/auth/selectors";
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
