@@ -2,8 +2,8 @@ import { Contact } from "../Contact/Contact";
 import css from "./ContactList.module.css";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectVisibleCard } from "../../redux/selectors";
 import { deleteCard } from "../../redux/handleCards/operation";
+import { selectVisibleCard } from "../../redux/auth/selectors";
 
 export const ContactList = () => {
   const selectCard = useSelector(selectVisibleCard);
