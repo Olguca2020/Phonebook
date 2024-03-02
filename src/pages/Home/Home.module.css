@@ -1,7 +1,10 @@
 .homeContainer {
   position: relative;
+  text-align: center;
   display: flex;
+  flex-direction: column; /* Используем flex для выравнивания по центру по вертикали и горизонтали */
   align-items: center;
+  justify-content: center;
 }
 
 .textContainer {
