@@ -10,3 +10,7 @@
 .active {
   color: orange;
 }
+.wrapper {
+  display: flex;
+  gap: 25px;
+}

@@ -9,7 +9,7 @@ export const Navigation = () => {
     return clsx(css.link, isActive && css.active);
   };
   return (
-    <nav>
+    <nav className={css.wrapper}>
       <NavLink className={buildLinkClass} to="/">
         Home
       </NavLink>

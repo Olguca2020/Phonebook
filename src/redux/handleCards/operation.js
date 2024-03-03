@@ -7,8 +7,8 @@ export const fetchCards = createAsyncThunk(
   "cards/fetchAll",
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get("contacts");
-      console.log(response.data);
+      const response = await axios.get("/contacts");
+      console.log(response);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -20,7 +20,7 @@ export const addCard = createAsyncThunk(
   "cards/addCard",
   async (newCard, thunkAPI) => {
     try {
-      const response = await axios.post("contacts", newCard);
+      const response = await axios.post("/contacts", newCard);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
