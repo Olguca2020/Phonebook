@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import css from "./ContactPage.module.css";
 import toast, { Toaster } from "react-hot-toast";
 
 import { SearchBox } from "../../components/SearchBox/SearchBox";
@@ -29,10 +29,12 @@ export default function ContactsPage() {
   }, [error, hasErrorOccurred]);
   return (
     <>
-      <title>PhoneBook</title>
-
-      <ContactForm />
-      <SearchBox />
+      <div className={css.flexWrapper}>
+        <div className={css.wrapper}>
+          <ContactForm />
+          <SearchBox />
+        </div>
+      </div>
 
       {isLoading && <MyLoader />}
       <ContactList />

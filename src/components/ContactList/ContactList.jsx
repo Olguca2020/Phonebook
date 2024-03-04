@@ -1,7 +1,7 @@
 import { Contact } from "../Contact/Contact";
 import css from "./ContactList.module.css";
 import { useDispatch, useSelector } from "react-redux";
-
+import { toast } from "react-hot-toast";
 import { deleteCard } from "../../redux/handleCards/operation";
 import { selectVisibleCard } from "../../redux/auth/selectors";
 
@@ -10,6 +10,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
   const handleContactDelete = (contactId) => {
     dispatch(deleteCard(contactId));
+    toast.success("Contact deleted successfully!");
   };
 
   return (
@@ -18,7 +19,7 @@ export const ContactList = () => {
         <li key={contact.id}>
           <Contact
             name={contact.name}
-            number={contact.phone}
+            number={contact.number}
             onButtonClick={() => handleContactDelete(contact.id)}
           />
         </li>

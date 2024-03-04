@@ -1,0 +1,8 @@
+.wrapper {
+  margin: auto;
+  display: block;
+}
+.flexWrapper {
+  display: flex;
+  align-items: center;
+}
