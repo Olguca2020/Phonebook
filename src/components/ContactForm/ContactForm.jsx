@@ -16,7 +16,7 @@ export const ContactForm = () => {
     const isCardExist = allCards.some((card) => card.name === values.name);
     if (isCardExist) {
       toast.error("Contact with this name already exists.", {
-        position: "top-right",
+        position: "top-center",
       });
       actions.resetForm();
     } else {
@@ -27,6 +27,12 @@ export const ContactForm = () => {
       };
 
       dispatch(addCard(newContact));
+      toast.success(
+        "Congratulations, the contact has been successfully added",
+        {
+          position: "top-center",
+        }
+      );
       actions.resetForm();
     }
   };
